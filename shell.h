@@ -12,6 +12,14 @@
 #include <fcntl.h>
 #include <errno.h>
 
+#define DELIM " \t\n"
+extern char **env;
+
+char *read_cmd(void);
+char **split(char **string);
+int _execute(char **cmd, char **av);
+void free_arr(char **arr);
+
 /* toem_string.c */
 int _strlen(char *);
 int _strcmp(char *, char *);

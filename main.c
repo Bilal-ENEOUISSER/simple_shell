@@ -9,21 +9,23 @@
 
 int main(int ac, char **av)
 {
-	char *line = NULL;
+	char *string = NULL, cmd == NULL;
 	int status = 0;
 	(void) ac;
-	(void) av;
 
 	while (1)
 	{
-		line = read_cmd();
-		if (line == NULL)
+		string = read_cmd();
+		if (string == NULL)
 		{
 			if (isatty(STDIN_FILENO))
 				write(STDOUT_FILENO, "\n", 1);
 			return (status);
 		}
-		free (line);
+		cmd = split(string);
+		if (!cmd)
+			continue;
 	}
+	status = _execute(cmd, av);
 	return (0);
 }
