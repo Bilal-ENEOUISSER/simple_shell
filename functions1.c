@@ -2,7 +2,6 @@
 
 /**
  * read_cmd - gets the next line of input from STDIN
- * @length: size of preallocated ptr buffer if not NULL
  * Return: cmd
  */
 
