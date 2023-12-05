@@ -6,12 +6,15 @@
  * @av: args
  * Return: 0 (Always Success)
  */
+char **env;  // Definition of the env variable
 
 int main(int ac, char **av)
 {
 	char *string = NULL, **cmd = NULL;
 	int status = 0;
 	(void)ac;
+
+	env = environ;
 
 	while (1)
 
