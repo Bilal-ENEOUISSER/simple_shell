@@ -8,7 +8,7 @@
  */
 char **env;
 
-int main(int ac, char **av, **envp)
+int main(int ac, char **av, char **envp)
 {
 	char *string = NULL, **cmd = NULL;
 	int status = 0;
