@@ -12,6 +12,8 @@
 #include <fcntl.h>
 #include <errno.h>
 
+#define WRITE_BUF_SIZE 1024
+#define BUF_FLUSH '\0'
 #define DELIM " \t\n"
 extern char **env;
 
