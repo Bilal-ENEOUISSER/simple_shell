@@ -9,7 +9,7 @@
 
 int main(int ac, char **av)
 {
-	char *string = NULL, cmd == NULL;
+	char *string = NULL, **cmd = NULL;
 	int status = 0;
 	(void) ac;
 

@@ -16,7 +16,7 @@
 extern char **env;
 
 char *read_cmd(void);
-char **split(char **string);
+char **split(char *string);
 int _execute(char **cmd, char **av);
 void free_arr(char **arr);
 

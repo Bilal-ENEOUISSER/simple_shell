@@ -7,18 +7,19 @@
 
 char *read_cmd(void)
 {
-  char *cmd = NULL;
-  s_t length = 0;
-  ss_t j;
-  if(isatty(STDIN_FILEON))
-  write(STDOUT_FILENO, "$ ", 2);
-  j = getline(&cmd, &length, stdin);
-  if (j == -1)
-    {
-      free(cmd);
-      return (NULL);
-    }
-  return (cmd);
+	char *cmd = NULL;
+	size_t length = 0;
+	ssize_t j;
+	
+	if(isatty(STDIN_FILENO))
+	write(STDOUT_FILENO, "$ ", 2);
+	j = getline(&cmd, &length, stdin);
+	if (j == -1)
+	{
+		free(cmd);
+		return (NULL);
+	}
+	return (cmd);
 }
 
 /**
@@ -29,7 +30,7 @@ char *read_cmd(void)
 
 char **split(char *string)
 {
-	char *token = NULL, tmp = NULL;
+	char *token = NULL, *tmp = NULL;
 	char **cmd = NULL;
 	int n = 0, i = 0;
 
@@ -57,7 +58,7 @@ char **split(char *string)
 	}
 	while (token)
         {
-                cmd[i] = _strdup(toke)n;
+                cmd[i] = _strdup(token);
                 token = strtok(NULL, DELIM);
 		i++;
         }
@@ -90,7 +91,7 @@ int _execute(char **cmd, char **av)
 	}
 	else
 	{
-		witpid(child, &status, 0);
+		waitpid(child, &status, 0);
 		free_arr(cmd);
 	}
 	return (WEXITSTATUS(status));
