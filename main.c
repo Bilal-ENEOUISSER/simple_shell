@@ -7,17 +7,14 @@
  * Return: 0 (Always Success)
  */
 
-char **env;
-
-int main(int ac, char **av, char **envp)
+int main(int ac, char **av)
 {
 	char *string = NULL, **cmd = NULL;
 	int status = 0;
-	(void) ac;
+	(void)ac;
 
-	env = envp;
 	while (1)
-	
+
 	{
 		string = read_cmd();
 		if (string == NULL)
