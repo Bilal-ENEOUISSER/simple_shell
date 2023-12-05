@@ -10,8 +10,7 @@ char *read_cmd(void)
 	char *cmd = NULL;
 	size_t length = 0;
 	ssize_t j;
-	
-	if(isatty(STDIN_FILENO))
+	if( isatty(STDIN_FILENO) )
 	write(STDOUT_FILENO, "$ ", 2);
 	j = getline(&cmd, &length, stdin);
 	if (j == -1)
