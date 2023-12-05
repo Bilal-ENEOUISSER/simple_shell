@@ -8,6 +8,8 @@
  */
 
 
+extern char **environ;  // Add this line to declare environ
+
 char **env;  // Definition of the env variable
 
 int main(int ac, char **av)
@@ -16,6 +18,7 @@ int main(int ac, char **av)
     int status = 0;
     (void)ac;
 
+    // Initialize env using the external variable 'environ'
     env = environ;
 
     while (1)
@@ -36,4 +39,3 @@ int main(int ac, char **av)
 
     return 0;
 }
-
