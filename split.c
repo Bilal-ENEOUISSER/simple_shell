@@ -1,10 +1,3 @@
-#include "shell.h"
-/**
- * split - splits a string
- * @string: string to split
- * Return: cmd
- */
-
 char **split(char *string)
 {
     char *token = NULL, *tmp = NULL;
