@@ -74,14 +74,18 @@ int _strlen(char *s)
  */
 char *_strcat(char *dest, char *src)
 {
-	char *ret = dest;
+	char *p = dest;
 
-	while (*dest)
-		dest++;
+	while (*p)
+		p++;
 	while (*src)
-		*dest++ = *src++;
-	*dest = *src;
-	return (ret);
+	{
+		*p = *src;
+		p++;
+		src++;
+	}
+	*p = '\0';
+	return (dest);
 }
 
 
@@ -96,13 +100,11 @@ char *_strcpy(char *dest, char *src)
 {
 	int i = 0;
 
-	if (dest == src || src == 0)
-		return (dest);
 	while (src[i])
 	{
 		dest[i] = src[i];
 		i++;
 	}
-	dest[i] = 0;
+	dest[i] = '\0';
 	return (dest);
 }
