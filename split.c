@@ -33,7 +33,7 @@ char **split(char *string)
 		free(string), string = NULL;
 		return (NULL);
 	}
-	token = strtok(NULL, DELIM);
+	token = strtok(string, DELIM);
 	while (token)
 	{
 	  cmd[i] = _strdup(token);
