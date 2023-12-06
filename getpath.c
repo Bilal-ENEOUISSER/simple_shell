@@ -25,7 +25,7 @@ char *_getpath(char *cmd)
 	if(!path_env)
 		return (NULL);
 	direc = strtok(path_env, ":");
-	whiel (direc)
+	while (direc)
 	{
 		full_cmd = malloc(_strlen(direc) + _strlen(cmd) + 2);
 		if (full_cmd)

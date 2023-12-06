@@ -12,7 +12,7 @@ int _execute(char **cmd, char **av, int idx)
 	pid_t child;
 	int status;
 
-	full_path = _getpath(cmd[0]);
+	full_cmd = _getpath(cmd[0]);
 	if (!full_cmd)
 	{
 		printerr(av[0], cmd[0], idx);

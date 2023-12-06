@@ -10,7 +10,7 @@
 int main(int ac, char **av)
 {
 	char *string = NULL, **cmd = NULL;
-	int status = 0n idx = 0;
+	int status = 0, idx = 0;
 	(void)ac;
 
 	while (1)
