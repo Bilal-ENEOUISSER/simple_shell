@@ -59,8 +59,8 @@ void reverse_str(char *str, int len)
 
 	while (start < end)
 	{
-		tmp = str [start];
-		str[start] = str [end];
+		tmp = str[start];
+		str[start] = str[end];
 		str[end] = tmp;
 		start++;
 		end--;

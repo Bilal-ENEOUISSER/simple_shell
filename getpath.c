@@ -3,7 +3,7 @@
 /**
  * _getpath - gats path
  * @cmd: command
- * Return: 
+ * Return:
  */
 
 char *_getpath(char *cmd)
@@ -22,7 +22,7 @@ char *_getpath(char *cmd)
 		}
 	}
 	path_env = _getenv("PATH");
-	if(!path_env)
+	if (!path_env)
 		return (NULL);
 	direc = strtok(path_env, ":");
 	while (direc)

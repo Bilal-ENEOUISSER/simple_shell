@@ -32,7 +32,7 @@ int _execute(char **cmd, char **av, int idx)
 	{
 		waitpid(child, &status, 0);
 		free_arr(cmd);
-		free(full_cmd), full_cmd = NULL; 
+		free(full_cmd), full_cmd = NULL;
 	}
 	return (WEXITSTATUS(status));
 }
