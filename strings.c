@@ -8,18 +8,18 @@
  */
 char *_strdup(const char *str)
 {
-
-  int length = 0;
+	char *ret;
+	int i, length = 0;
 
 	if (str == NULL)
 		return (NULL);
-	while (*str++)
+	while (str[length])
 		length++;
 	ret = malloc(sizeof(char) * (length + 1));
-	if (!ret)
+	if (ret == NULL)
 		return (NULL);
-	for (length++; length--;)
-		ret[length] = *--str;
+	for (i = 0; i <= length; i++)
+		ret[i] = str[i];
 	return (ret);
 }
 
@@ -34,17 +34,18 @@ char *_strdup(const char *str)
  */
 int _strcmp(char *s1, char *s2)
 {
-	while (*s1 && *s2)
+	int cmp;
+
+	cmp = (int)*s1 - (int)*s2;
+	while (*s1)
 	{
 		if (*s1 != *s2)
-			return (*s1 - *s2);
+			break;
 		s1++;
 		s2++;
+		cmp = (int)*s1 - (int)*s2;
 	}
-	if (*s1 == *s2)
-		return (0);
-	else
-		return (*s1 < *s2 ? -1 : 1);
+	return (cmp);
 }
 
 
