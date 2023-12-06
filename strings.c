@@ -1,4 +1,5 @@
 #include "shell.h"
+
 /**
  * _strdup - duplicates a string
  * @str: the string to duplicate
@@ -7,25 +8,20 @@
  */
 char *_strdup(const char *str)
 {
-	int i, length = 0;
+	int length = 0;
 	char *ret;
 
 	if (str == NULL)
 		return (NULL);
-	while (*str != '\0')
-	  {
-	    length++;
-	    str++;
-	  }
-	str = str - length;
+	while (*str++)
+		length++;
 	ret = malloc(sizeof(char) * (length + 1));
-	if (ret == NULL)
+	if (!ret)
 		return (NULL);
-	for (i = 0; i <= length; i++)
-		ret[i] = str[i];
+	for (length++; length--;)
+		ret[length] = *--str;
 	return (ret);
 }
-
 
 
 
@@ -38,17 +34,17 @@ char *_strdup(const char *str)
  */
 int _strcmp(char *s1, char *s2)
 {
-  int cmp;
-  cmp = (int)*s1 - (int)*s2;
-  while (*s1)
-    {
-      if (*s1 != *s2)
-	break;
-      s1++;
-      s2++;
-      cmp = (int)*s1 - (int)*s2;
-    }
-  return (cmp);
+	while (*s1 && *s2)
+	{
+		if (*s1 != *s2)
+			return (*s1 - *s2);
+		s1++;
+		s2++;
+	}
+	if (*s1 == *s2)
+		return (0);
+	else
+		return (*s1 < *s2 ? -1 : 1);
 }
 
 
@@ -77,19 +73,15 @@ int _strlen(char *s)
  */
 char *_strcat(char *dest, char *src)
 {
-  char *ret = dest;
-  while (*ret)
-    ret++;
-  while (*src)
-    {
-      *ret = *src;
-      ret++;
-      src++;
-    }
- 
-  return (dest);
-}
+	char *ret = dest;
 
+	while (*dest)
+		dest++;
+	while (*src)
+		*dest++ = *src++;
+	*dest = *src;
+	return (ret);
+}
 
 
 /**
