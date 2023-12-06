@@ -86,7 +86,7 @@ char *_strcat(char *dest, char *src)
       ret++;
       src++;
     }
-  *ret = *src;
+ 
   return (dest);
 }
 
