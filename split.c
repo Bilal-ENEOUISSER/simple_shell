@@ -17,8 +17,8 @@ char **split(char *string)
 	token = strtok(tmp, DELIM);
 	if (token == NULL)
 	{
-		free (tmp), tmp = NULL;
-		free (string), string = NULL;
+		free(tmp), tmp = NULL;
+		free(string), string = NULL;
 		return (NULL);
 	}
 	while (token)
@@ -26,20 +26,20 @@ char **split(char *string)
 		n++;
 		token = strtok(NULL, DELIM);
 	}
-	free (tmp), tmp = NULL;
+	free(tmp), tmp = NULL;
 	cmd = malloc(sizeof(char *) * (n + 1));
 	if (!cmd)
 	{
-		free (string), string = NULL;
+		free(string), string = NULL;
 		return (NULL);
 	}
 	while (token)
-        {
-                cmd[i] = _strdup(token);
-                token = strtok(NULL, DELIM);
-		i++;
-        }
-	free (string), string = NULL;
-        cmd[i] = NULL;
+	{
+	  cmd[i] = _strdup(token);
+	  token = strtok(NULL, DELIM);
+	  i++;
+	}
+	free(string), string = NULL;
+	cmd[i] = NULL;
 	return (cmd);
 }
