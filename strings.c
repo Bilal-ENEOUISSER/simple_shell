@@ -13,9 +13,8 @@ char *_strdup(const char *str)
 	if (str == NULL)
 		return (NULL);
 	while (*str != '\0')
-    str++;
-		length++;
-  
+	  str++;
+	length++;
 	ret = malloc(sizeof(char) * (length + 1));
 	if (ret == NULL)
 		return (NULL);
@@ -36,20 +35,17 @@ char *_strdup(const char *str)
  */
 int _strcmp(char *s1, char *s2)
 {
-  int cmp;
-  
-  cmp = (int)*s1 - (int)*s2;
-  
-	while (*s1)
-	{
-		if (*s1 != *s2)
-			break;
-		s1++;
-		s2++;
-    cmp = (int)*s1 - (int)*s2;
-	}
-	
-		return (cmp);
+int cmp;
+cmp = (int)*s1 - (int)*s2;
+while (*s1)
+{
+if (*s1 != *s2)
+break;
+s1++;
+s2++;
+cmp = (int)*s1 - (int)*s2;
+}
+return (cmp);
 }
 
 
