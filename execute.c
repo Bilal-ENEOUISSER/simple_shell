@@ -14,7 +14,7 @@ int _execute(char **cmd, char **av)
 	child = fork();
 	if (child == 0)
 	{
-		if (execve(cmd[0], cmd, env) == -1)
+		if (execve(cmd[0], cmd, environ) == -1)
 		{
 			perror(av[0]);
 			free_arr(cmd);

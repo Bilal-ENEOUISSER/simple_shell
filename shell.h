@@ -15,7 +15,7 @@
 #define WRITE_BUF_SIZE 1024
 #define BUF_FLUSH '\0'
 #define DELIM " \t\n"
-extern char **env;
+extern char **environ;
 
 char *read_cmd(void);
 char **split(char *string);
