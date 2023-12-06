@@ -3,7 +3,7 @@
  * _execute - execute the command
  * @cmd: command
  * @av: args
- * Return:
+ * Return: exit status of the command
  */
 
 int _execute(char **cmd, char **av)
