@@ -77,19 +77,17 @@ int _strlen(char *s)
  */
 char *_strcat(char *dest, char *src)
 {
-char *ret = dest;
-
-while (*ret)
-ret++;
-
-while (*src)
-{
-*ret = *src;
-ret++;
-src++;
-}
-*ret = *src;
-return (dest);
+  char *ret = dest;
+  while (*ret)
+    ret++;
+  while (*src)
+    {
+      *ret = *src;
+      ret++;
+      src++;
+    }
+  *ret = *src;
+  return (dest);
 }
 
 
