@@ -8,8 +8,8 @@
  */
 char *_strdup(const char *str)
 {
-	int length = 0;
-	char *ret;
+
+  int length = 0;
 
 	if (str == NULL)
 		return (NULL);
