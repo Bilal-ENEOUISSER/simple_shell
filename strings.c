@@ -8,18 +8,18 @@
  */
 char *_strdup(const char *str)
 {
-	int length = 0;
 	char *ret;
+	int i, length = 0;
 
 	if (str == NULL)
 		return (NULL);
-	while (*str++)
+	while (str[length])
 		length++;
 	ret = malloc(sizeof(char) * (length + 1));
-	if (!ret)
+	if (ret == NULL)
 		return (NULL);
-	for (length++; length--;)
-		ret[length] = *--str;
+	for (i = 0; i <= length; i++)
+		ret[i] = str[i];
 	return (ret);
 }
 
@@ -34,17 +34,18 @@ char *_strdup(const char *str)
  */
 int _strcmp(char *s1, char *s2)
 {
-	while (*s1 && *s2)
+	int cmp;
+
+	cmp = (int)*s1 - (int)*s2;
+	while (*s1)
 	{
 		if (*s1 != *s2)
-			return (*s1 - *s2);
+			break;
 		s1++;
 		s2++;
+		cmp = (int)*s1 - (int)*s2;
 	}
-	if (*s1 == *s2)
-		return (0);
-	else
-		return (*s1 < *s2 ? -1 : 1);
+	return (cmp);
 }
 
 
@@ -56,11 +57,11 @@ int _strcmp(char *s1, char *s2)
  */
 int _strlen(char *s)
 {
-	int i = 0;
+	int len = 0;
 
-	while (s[i])
-		i++;
-	return (i);
+	while (s[len])
+		len++;
+	return (len);
 }
 
 
@@ -73,14 +74,18 @@ int _strlen(char *s)
  */
 char *_strcat(char *dest, char *src)
 {
-	char *ret = dest;
+	char *p = dest;
 
-	while (*dest)
-		dest++;
+	while (*p)
+		p++;
 	while (*src)
-		*dest++ = *src++;
-	*dest = *src;
-	return (ret);
+	{
+		*p = *src;
+		p++;
+		src++;
+	}
+	*p = '\0';
+	return (dest);
 }
 
 
@@ -95,13 +100,11 @@ char *_strcpy(char *dest, char *src)
 {
 	int i = 0;
 
-	if (dest == src || src == 0)
-		return (dest);
 	while (src[i])
 	{
 		dest[i] = src[i];
 		i++;
 	}
-	dest[i] = 0;
+	dest[i] = '\0';
 	return (dest);
 }
