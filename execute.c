@@ -3,6 +3,7 @@
  * _execute - execute the command
  * @cmd: command
  * @av: args
+ * @idx: index
  * Return: exit status of the command
  */
 

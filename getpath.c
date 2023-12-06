@@ -3,7 +3,7 @@
 /**
  * _getpath - gats path
  * @cmd: command
- * Return:
+ * Return: full path
  */
 
 char *_getpath(char *cmd)
