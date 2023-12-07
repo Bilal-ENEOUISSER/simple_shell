@@ -36,7 +36,7 @@ void handle_builtin(char **cmd, char **av, int *status, int idx)
 	(void) idx;
 
 	if (_strcmp(cmd[0], "exit") == 0)
-	exit_shell(command, status);
+	exit_shell(cmd, status);
 
 	else if (_strcmp(cmd[0], "env") == 0)
 	print_env(cmd, status);
@@ -50,7 +50,7 @@ void handle_builtin(char **cmd, char **av, int *status, int idx)
  */
 void exit_shell(char **cmd, int *status)
 {
-	free_array(cmd);
+	free_arr(cmd);
 	exit(*status);
 }
 
