@@ -26,7 +26,7 @@ char *_getpath(char *cmd);
 
 int is_builtin(char *cmd);
 void handle_builtin(char **cmd, char **av, int *status, int idx);
-void exit_shell(char **cmd, int *status);
+void exit_shell(char **cmd, char **av, int *status, int idx);
 void print_env(char **cmd, int *status);
 
 /* strings.c */
@@ -41,4 +41,6 @@ char *_strdup(const char *);
 void printerr(char *name, char *cmd, int idx);
 char *_itoa(int n);
 void reverse_str(char *str, int len);
+int _is_positive(char *str);
+int _atoi(char *str);
 #endif

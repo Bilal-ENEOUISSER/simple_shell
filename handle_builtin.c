@@ -32,11 +32,8 @@ int is_builtin(char *cmd)
  */
 void handle_builtin(char **cmd, char **av, int *status, int idx)
 {
-	(void) av;
-	(void) idx;
-
 	if (_strcmp(cmd[0], "exit") == 0)
-	exit_shell(cmd, status);
+	exit_shell(cmd, av, status, idx);
 
 	else if (_strcmp(cmd[0], "env") == 0)
 	print_env(cmd, status);
@@ -48,8 +45,31 @@ void handle_builtin(char **cmd, char **av, int *status, int idx)
  * @status: A pointer to an integer representing the exit status of the program.
  * Return: void
  */
-void exit_shell(char **cmd, int *status)
+void exit_shell(char **cmd, char **av,  int *status, int idx)
 {
+	int exit_val = (*status);
+	char *index, mssg[] = ": exit Illegal number: ";
+
+	if (cmd[1])
+	{
+		if (is_positive(cmd[1]))
+		{
+			exit_val = _atoi(cmd[1]);
+		}
+		else
+		{
+			index = _itoa(idx);
+			write(STDERR_FILENO, av[0], _strlen(av[0]));
+			write(STDERR_FILENO, ": ", 2);
+			write(STDERR_FILENO, index, _strlen(index));
+			write(STDERR_FILENO, mssg, _strlen(mssg));
+			write(STDERR_FILENO, cmd[1], _strlen(cmd[1]));
+			write(STDERR_FILENO, "\n", 1);
+			free(index);
+			free_arr(cmd);
+			(*status) = 2;
+			return;
+		}
 	free_arr(cmd);
 	exit(*status);
 }
