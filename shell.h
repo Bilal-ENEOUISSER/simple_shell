@@ -41,6 +41,6 @@ char *_strdup(const char *);
 void printerr(char *name, char *cmd, int idx);
 char *_itoa(int n);
 void reverse_str(char *str, int len);
-int _is_positive(char *str);
+int is_positive(char *str);
 int _atoi(char *str);
 #endif

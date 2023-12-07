@@ -5,11 +5,10 @@
  * @cmd: A pointer to a string representing the command.
  * Return: 1 if the command is a built-in, 0 otherwise.
  */
-
 int is_builtin(char *cmd)
 {
 	char *builtins[] = {
-		"exit", "env", "setenv", 
+		"exit", "env", "setenv",
 		"cd", NULL
 	};
 	int i;
@@ -24,9 +23,9 @@ int is_builtin(char *cmd)
 
 /**
  * handle_builtin - Executes built-in shell commands.
- * @cmd: A pointer to an array of strings representing the command and its arguments.
+ * @cmd: A pointer to an array of strings
  * @av: A pointer to an array of strings representing program arguments.
- * @status: A pointer to an integer representing the exit status of the program.
+ * @status: A pointer to an integer representing the exit status
  * @idx: The index of the current command in the command array.
  * Return: void
  */
@@ -41,8 +40,10 @@ void handle_builtin(char **cmd, char **av, int *status, int idx)
 
 /**
  * exit_shell - Exits the shell program.
- * @cmd: A pointer to an array of strings representing the command and its arguments.
- * @status: A pointer to an integer representing the exit status of the program.
+ * @cmd: A pointer to an array of strings representing the command
+ * @av: arguments
+ * @status: A pointer to an integer representing the exit status
+ * @idx: index
  * Return: void
  */
 void exit_shell(char **cmd, char **av,  int *status, int idx)
@@ -70,14 +71,15 @@ void exit_shell(char **cmd, char **av,  int *status, int idx)
 			(*status) = 2;
 			return;
 		}
+	}
 	free_arr(cmd);
-	exit(*status);
+	exit(exit_val);
 }
 
 /**
  * print_env - Prints the environment variables to the standard output.
- * @cmd: A pointer to an array of strings representing the command and its arguments.
- * @status: A pointer to an integer representing the exit status of the program.
+ * @cmd: A pointer to an array of strings representing the command
+ * @status: A pointer to an integer representing the exit status
  * Return: void
  */
 void print_env(char **cmd, int *status)
