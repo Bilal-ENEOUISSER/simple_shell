@@ -17,10 +17,12 @@
 #define DELIM " \t\n"
 extern char **environ;
 
+void free_arr(char **arr);
 char *read_cmd(void);
 char **split(char *string);
-int _execute(char **cmd, char **av);
-void free_arr(char **arr);
+int _execute(char **cmd, char **av, int idx);
+char *_getenv(char *var);
+char *_getpath(char *cmd);
 
 /* strings.c */
 int _strlen(char *);
@@ -29,4 +31,9 @@ char *_strcat(char *, char *);
 char *_strcpy(char *, char *);
 char *_strdup(const char *);
 
+
+/*tools*/
+void printerr(char *name, char *cmd, int idx);
+char *_itoa(int n);
+void reverse_str(char *str, int len);
 #endif
