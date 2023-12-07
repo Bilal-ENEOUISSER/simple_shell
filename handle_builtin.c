@@ -69,6 +69,6 @@ void print_env(char **cmd, int *status)
 		write(STDOUT_FILENO, environ[i], _strlen(environ[i]));
 		write(STDOUT_FILENO, "\n", 1);
 	}
-	free_array(cmd);
+	free_arr(cmd);
 	(*status) = 0;
 }
