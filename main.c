@@ -14,7 +14,6 @@ int main(int ac, char **av)
 	(void)ac;
 
 	while (1)
-
 	{
 		string = read_cmd();
 		if (string == NULL)
@@ -27,7 +26,9 @@ int main(int ac, char **av)
 		cmd = split(string);
 		if (!cmd)
 			continue;
+		if (is_builtin(cmd[0]))
+			handle_builtin(cmd, av, &status, idx);
+		else
+			status = _execute(cmd, av, idx);
 	}
-	status = _execute(cmd, av, idx);
-	return (0);
 }
