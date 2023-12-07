@@ -24,6 +24,11 @@ int _execute(char **cmd, char **av, int idx);
 char *_getenv(char *var);
 char *_getpath(char *cmd);
 
+int is_builtin(char *cmd);
+void handle_builtin(char **cmd, char **av, int status, int idx);
+void exit_shell(char **cmd, int status);
+void print_env(char **cmd, int status);
+
 /* strings.c */
 int _strlen(char *);
 int _strcmp(char *, char *);
