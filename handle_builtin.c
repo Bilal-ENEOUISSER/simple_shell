@@ -9,7 +9,7 @@ int is_builtin(char *cmd)
 {
 	char *builtins[] = {
 		"exit", "env", "setenv",
-		"cd", NULL
+		"cd", "unsetenv", NULL
 	};
 	int i;
 
@@ -36,6 +36,12 @@ void handle_builtin(char **cmd, char **av, int *status, int idx)
 
 	else if (_strcmp(cmd[0], "env") == 0)
 	print_env(cmd, status);
+
+	else if (_strcmp(cmd[0], "setenv") == 0)
+	set_env(cmd, av, status, idx);
+
+	else if (_strcmp(cmd[0], "unsetenv") == 0)
+	unset_env(cmd, av, status, idx);
 }
 
 /**

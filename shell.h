@@ -28,6 +28,8 @@ int is_builtin(char *cmd);
 void handle_builtin(char **cmd, char **av, int *status, int idx);
 void exit_shell(char **cmd, char **av, int *status, int idx);
 void print_env(char **cmd, int *status);
+void set_env(char **cmd, char **av,  int *status, int idx);
+void unset_env(char **cmd, char **av, int *status, int idx);
 
 /* strings.c */
 int _strlen(char *);
