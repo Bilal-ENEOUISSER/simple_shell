@@ -23,7 +23,7 @@ int _execute(char **cmd, char **av, int idx)
 	child = fork();
 	if (child == 0)
 	{
-		if (execve(cmd[0], cmd, environ) == -1)
+		if (execve(full_cmd, cmd, environ) == -1)
 		{
 			free(full_cmd), full_cmd = NULL;
 			free_arr(cmd);
