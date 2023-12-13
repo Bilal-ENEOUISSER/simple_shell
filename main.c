@@ -31,4 +31,6 @@ int main(int ac, char **av)
 		else
 			status = _execute(cmd, av, idx);
 	}
+	free(string);
+	return (0);
 }
