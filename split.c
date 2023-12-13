@@ -37,10 +37,10 @@ char **split(char *string)
 	while (token)
 	{
 		cmd[i] = _strdup(token);
-		token = strtok(NULL, DELIM);
 		i++;
+		token = strtok(NULL, DELIM);
 	}
-	free(string), string = NULL;
 	cmd[i] = NULL;
+	free(string), string = NULL;
 	return (cmd);
 }
