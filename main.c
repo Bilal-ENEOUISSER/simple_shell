@@ -23,7 +23,7 @@ int main(int ac, char **av)
 			return (status);
 		}
 		idx++;
-		cmd = split(string, DELIM);
+		cmd = split(string);
 		if (!cmd)
 			continue;
 		if (is_builtin(cmd[0]))
