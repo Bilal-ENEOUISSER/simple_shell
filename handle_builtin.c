@@ -49,7 +49,7 @@ void handle_builtin(char **cmd, char **av, int *status, int idx)
 void exit_shell(char **cmd, char **av,  int *status, int idx)
 {
 	int exit_val = (*status);
-	char *index, mssg[] = ": exit Illegal number: ";
+	char *index, mssg[] = ": exit: Illegal number: ";
 
 	if (cmd[1])
 	{
