@@ -36,9 +36,9 @@ char **split(char *string)
 	token = strtok(string, DELIM);
 	while (token)
 	{
-	  cmd[i] = _strdup(token);
-	  token = strtok(NULL, DELIM);
-	  i++;
+		cmd[i] = _strdup(token);
+		token = strtok(NULL, DELIM);
+		i++;
 	}
 	free(string), string = NULL;
 	cmd[i] = NULL;
